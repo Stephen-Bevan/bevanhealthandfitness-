@@ -1,1 +1,47 @@
-h1{ color: blue;}
+h1{ 
+    color: blue;
+}
+
+ /* Hero Section */
+.hero-section {
+    background: url('path-to-your-hero-image.jpg') no-repeat center center/cover;
+    height: 70vh;
+    display: flex;
+    margin-bottom: 50px; /* Added spacing below the hero section */
+}
+
+.bg-opacity-50 {
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 20px 40px; /* Add padding to the hero text block */
+}
+
+/* Features Section */
+.card {
+    border: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.row .col-md-4 {
+    padding-top: 20px;
+}
+
+/* Spacing adjustments */
+.container {
+    padding-top: 20px;
+}
+
+.container.mb-5 {
+    margin-bottom: 60px; /* Add bottom spacing to the features section */
+}
+
+/* Footer Spacing */
+footer {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+ 
