@@ -1,0 +1,67 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html>
+
+    <head> 
+
+        <meta charset="utf-8">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+        <title> Bevan Health And Fitness </title>
+
+
+        <!--Change the bootwatch themes -->
+        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/sandstone/bootstrap.min.css">
+
+        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+
+        
+
+    </head>
+
+    <body>
+
+        <!-- Create Navbar here -->
+
+        
+        <div class="container">
+
+            <br>
+
+            <!-- Notification messages -->
+
+
+
+           {% block content %}
+
+
+
+
+           {% endblock %}
+
+
+        </div>
+
+        <script src="{% static 'js/app.js' %}"></script>
+
+
+        <!-- Updated jQuery -->
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha384-OgpXVk+rfH2CX3C6AvtTkATxa/tC4eBmJ9D+SYloUHeZjfXBAtJ9/6MNjqCl6NjQ" crossorigin="anonymous"></script>
+
+        <!-- Updated Popper.js -->
+        <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-pZw+5PyWb9/qA7ky8vkzTrTfEM8qkld1R5G2Q+zStgZ/vgG4Z8Bk/S11qE/AJ5i2" crossorigin="anonymous"></script>
+
+        <!-- Updated Bootstrap -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-VkR2q5u65CzwTZH7aIA2L61FPZUsZnRXZeA2El96HYH2GFGIbqlg8BUEDJEHv1p4" crossorigin="anonymous"></script>
+
+
+
+    </body>
+
+
+
+</html>
