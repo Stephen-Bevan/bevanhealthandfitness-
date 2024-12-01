@@ -2,8 +2,8 @@ from django.shortcuts import render, redirect
 from .form import UserCreationForm, LoginForm
 from django.views.generic import TemplateView
 
-from django.contrib.auth.models import auth
-from django.contrib.auth import authenticate
+from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.decorators import login_required
 
 
 # Home page view
@@ -12,6 +12,7 @@ class HomePage(TemplateView):
     Displays home page
     """
     template_name = 'index.html'
+
 
 # Register a user
 def register(request):
@@ -23,31 +24,38 @@ def register(request):
             form.save()
             return redirect('home')  # Redirect to home page or another page after registration
 
-    context = {'form': form}  # Define context here
+    context = {'form': form}
     return render(request, 'register.html', context=context)
 
 
-
-
-    # -Login a user
+# Login a user
 def my_login(request):
-    form = LoginForm()  # Correct initialization of the form
+    form = LoginForm()
 
-    if request.method == "POST":  # Ensure the method is POST (case-sensitive)
-        form = LoginForm(request, data=request.POST)  # Reinitialize form with POST data
+    if request.method == "POST":
+        form = LoginForm(request, data=request.POST)
 
-        if form.is_valid():  # Check if the form is valid
-            username = form.cleaned_data.get('username')  # Get cleaned data for 'username'
-            password = form.cleaned_data.get('password')  # Get cleaned data for 'password'
+        if form.is_valid():
+            username = request.POST.get('username')
+            password = request.POST.get('password')
 
-            user = authenticate(request, username=username, password=password)  # Authenticate user
+            user = authenticate(request, username=username, password=password)
 
-            if user is not None:  # Check if the user is authenticated
-                auth_login(request, user)  # Log in the user using auth_login
-                return redirect('home')  # Redirect to the 'home' view after successful login
+            if user is not None:
+                login(request, user)  # Corrected function call
+                return redirect('home')  # Redirect to home page after login
 
-    # Render the form with context if GET request or invalid form submission
-    context = {'form': form}  # Updated to use the 'form' variable
-    return render(request, 'my-login.html', context=context)  # Render the login page
+    context = {'form': form}
+    return render(request, 'my-login.html', context=context)
 
 
+# My workouts view
+@login_required(login_url='my-login')
+def myworkouts(request):
+    return render(request, 'myworkouts.html')
+
+
+# User logout
+def user_logout(request):
+    logout(request)  # Use the `logout` function correctly
+    return redirect('home')

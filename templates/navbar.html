@@ -16,12 +16,12 @@
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
         <li class="nav-item">
-          <a class="nav-link" href="#">
-            Dashboard <i class="fa fa-home" aria-hidden="true"></i>
+          <a class="nav-link" href="{% url 'myworkouts' %}">
+            My Workouts <i class="fa fa-home" aria-hidden="true"></i>
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#logout">
+          <a class="nav-link" href="{% url 'user-logout' %}">
             Sign out <i class="fa fa-sign-out" aria-hidden="true"></i>
           </a>
         </li>
