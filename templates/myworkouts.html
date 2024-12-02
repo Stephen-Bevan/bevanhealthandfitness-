@@ -1,5 +1,19 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>My Workout, {{ user }}</h1>
+    <h1>Workout Dashboard</h1>
+
+    <h2>Welcome, {{ user.username }}</h2>
+
+    <ul>
+        <li>
+            <a href="{% url 'workout-list' %}">View All Workouts</a>
+        </li>
+        <li>
+            <a href="{% url 'workout-create' %}">Create a New Workout</a>
+        </li>
+    </ul>
+
+    <h2>Manage Workouts</h2>
+    <p>To edit or delete specific workouts, navigate to the <a href="{% url 'workout-list' %}">workout list</a> and use the provided options for each workout.</p>
 {% endblock %}
