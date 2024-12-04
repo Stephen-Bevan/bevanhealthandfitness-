@@ -64,14 +64,14 @@ class WorkoutListView(ListView):
 # Create Workout
 class WorkoutCreateView(CreateView):
     model = Workout
-    fields = ['user', 'day']
+    fields = ['user', 'day'] # ask kev about this ['name', 'sets', 'reps', 'weights']
     template_name = 'workout_form.html'
     success_url = '/workouts/'
 
 # Update Workout
 class WorkoutUpdateView(UpdateView):
     model = Workout
-    fields = ['user', 'day']
+    fields = ['update']
     template_name = 'workout_form.html'
     success_url = '/workouts/'
 
