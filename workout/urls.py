@@ -24,3 +24,4 @@ urlpatterns = [
     path('workouts/<int:pk>/delete/', WorkoutDeleteView.as_view(), name='workout-delete'),  # Delete a workout
     path('myworkouts/', myworkouts, name='myworkouts'),  # User-specific workouts
 ]
+

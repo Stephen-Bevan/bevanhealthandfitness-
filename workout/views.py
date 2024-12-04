@@ -3,7 +3,7 @@ from .form import UserCreationForm, LoginForm
 from django.views.generic import TemplateView, CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.decorators import login_required
-from .models import Workout
+from .models import Exercise
 
 # Home page view
 class HomePage(TemplateView):
@@ -57,26 +57,27 @@ def user_logout(request):
 
 # List Workouts
 class WorkoutListView(ListView):
-    model = Workout
+    model = Exercise
     template_name = 'workout_list.html'
     context_object_name = 'workouts'
 
 # Create Workout
 class WorkoutCreateView(CreateView):
-    model = Workout
-    fields = ['user', 'day'] # ask kev about this ['name', 'sets', 'reps', 'weights']
+    model = Exercise
+    fields = ['day', 'name', 'sets', 'reps', 'weights']
     template_name = 'workout_form.html'
     success_url = '/workouts/'
 
 # Update Workout
 class WorkoutUpdateView(UpdateView):
-    model = Workout
+    model = Exercise
     fields = ['update']
     template_name = 'workout_form.html'
     success_url = '/workouts/'
 
 # Delete Workout
 class WorkoutDeleteView(DeleteView):
-    model = Workout
+    model = Exercise
     template_name = 'workout_confirm_delete.html'
     success_url = '/workouts/'
+
