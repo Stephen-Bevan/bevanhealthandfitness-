@@ -1,16 +1,30 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Workout List</h1>
 
-<ul>
-    {% for workout in workouts %}
-        <li>{{ workout.day }}  - <a href="{% url 'workout-delete' workout.id %}">Delete</a></li>
-    {% endfor %}
-</ul>
-
-<a href="{% url 'workout-create' %}">Add New Workout</a>
-
+<div class="container mt-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h1 class="text-primary">My Workouts</h1>
+        <a href="{% url 'workout-create' %}" class="btn btn-success">Add Workout</a>
+    </div>
+    {% if workouts %}
+    <ul class="list-group">
+        {% for workout in workouts %}
+        <li class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <strong>{{ workout.name }}</strong> - <span class="text-muted">{{ workout.day }}</span>
+            </div>
+            <div>
+                <a href="{% url 'workout-update' workout.id %}" class="btn btn-warning btn-sm me-2">Edit</a>
+                <a href="{% url 'workout-delete' workout.id %}" class="btn btn-danger btn-sm">Delete</a>
+            </div>
+        </li>
+        {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-muted">No workouts available. Click "Add Workout" to get started!</p>
+    {% endif %}
+</div>
 
 
 {% endblock %}

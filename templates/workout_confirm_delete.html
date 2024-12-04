@@ -1,13 +1,21 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Delete Workout Confirmation</h1>
 
-<p>Are you sure you want to delete this workout?</p>
-<form method="post">
-    {% csrf_token %}
-    <button type="submit">Confirm</button>
-</form>
+<div class="container mt-5">
+    <div class="card shadow-lg">
+        <div class="card-body text-center">
+            <h1 class="text-danger">Delete Workout</h1>
+            <p class="fs-5">Are you sure you want to delete <strong>"{{ workout.name }}"</strong>?</p>
+            <form method="post" class="d-inline">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger me-2">Yes, delete</button>
+            </form>
+            <a href="{% url 'workout-list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
+    </div>
+</div>
 
-<a href="{% url 'workout-list' %}">Back to Workout List</a>
+
+
 {% endblock %}

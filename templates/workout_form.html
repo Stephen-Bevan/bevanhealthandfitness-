@@ -1,13 +1,51 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Create Workout</h1>
 
-<form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Save</button>
-</form>
 
-<a href="{% url 'workout-list' %}">Back to Workout List</a>
+
+<div class="container mt-5">
+    <h1 class="text-center">{% if workout %}Edit{% else %}Add{% endif %} Workout</h1>
+    <form method="post" class="needs-validation" novalidate>
+        {% csrf_token %}
+        <div class="mb-3">
+            <label for="name" class="form-label">Name:</label>
+            <input type="text" id="name" name="name" class="form-control" value="{{ workout.name|default:'' }}" required>
+            <div class="invalid-feedback">
+                Please provide a name for the workout.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="day" class="form-label">Day:</label>
+            <input type="date" id="day" name="day" class="form-control" value="{{ workout.day|default:'' }}" required>
+            <div class="invalid-feedback">
+                Please select a date.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="sets" class="form-label">Sets:</label>
+            <input type="number" id="sets" name="sets" class="form-control" value="{{ workout.sets|default:'' }}" required>
+            <div class="invalid-feedback">
+                Please enter the number of sets.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="reps" class="form-label">Reps:</label>
+            <input type="number" id="reps" name="reps" class="form-control" value="{{ workout.reps|default:'' }}" required>
+            <div class="invalid-feedback">
+                Please enter the number of reps.
+            </div>
+        </div>
+        <div class="mb-3">
+            <label for="weights" class="form-label">Weights (kg):</label>
+            <input type="number" step="0.01" id="weights" name="weights" class="form-control" value="{{ workout.weights|default:'' }}" required>
+            <div class="invalid-feedback">
+                Please provide the weight in kilograms.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary w-100">Save</button>
+    </form>
+</div>
+
+
 {% endblock %}

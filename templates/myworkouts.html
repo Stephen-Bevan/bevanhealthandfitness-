@@ -1,19 +1,34 @@
 {% extends 'base.html' %}
 
 {% block content %}
-    <h1>Workout Dashboard</h1>
-
-    <h2>Welcome, {{ user.username }}</h2>
-
-    <ul>
-        <li>
-            <a href="{% url 'workout-list' %}">View All Workouts</a>
-        </li>
-        <li>
-            <a href="{% url 'workout-create' %}">Create a New Workout</a>
-        </li>
-    </ul>
-
-    <h2>Manage Workouts</h2>
-    <p>To edit or delete specific workouts, navigate to the <a href="{% url 'workout-list' %}">workout list</a> and use the provided options for each workout.</p>
+<div class="container mt-5">
+    <div class="text-center mb-4">
+        <h1 class="text-primary">Workout Dashboard</h1>
+        <p class="fs-5 text-muted">
+            Welcome {{ user.username }}! This app is designed to help you track your workouts, manage your progress, and stay consistent with your fitness goals.
+        </p>
+    </div>
+    </div>
+    <div class="card shadow-lg mb-4">
+        <div class="card-body">
+            <h3 class="text-primary">Quick Links</h3>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    <a href="{% url 'workout-list' %}" class="btn btn-link">View All Workouts</a>
+                </li>
+                <li class="list-group-item">
+                    <a href="{% url 'workout-create' %}" class="btn btn-link">Create a New Workout</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h3 class="text-primary">Manage Workouts</h3>
+            <p class="text-muted">
+                To edit or delete specific workouts, navigate to the <a href="{% url 'workout-list' %}" class="text-decoration-underline">workout list</a> and use the provided options for each workout.
+            </p>
+        </div>
+    </div>
+</div>
 {% endblock %}
