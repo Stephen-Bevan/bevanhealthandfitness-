@@ -9,6 +9,7 @@ from .views import (
     register,
     user_logout,
     myworkouts,
+    ExerciseListView,
 )
 
 urlpatterns = [
@@ -21,4 +22,8 @@ urlpatterns = [
     path('register/', register, name='register'),  # Register page
     path('user-logout/', user_logout, name='user-logout'),  # Logout page
     path('myworkouts/', myworkouts, name='myworkouts'),  # User-specific workouts
+    path('all_workouts/', ExerciseListView.as_view(), name='workout_genric'),
+
+
+
 ]

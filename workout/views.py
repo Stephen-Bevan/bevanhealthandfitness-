@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from .form import UserCreationForm, LoginForm
-from django.views.generic import TemplateView
+from django.views import generic, View 
+from django.views.generic import TemplateView, ListView
 from django.contrib.auth import logout, login, authenticate
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Exercise
 
@@ -143,3 +145,17 @@ def workout_delete(request, pk):
         return redirect('workout-list')
 
     return render(request, 'workout_confirm_delete.html', {'workout': workout})
+
+# genric veiw test 
+
+class ExerciseListView(LoginRequiredMixin, ListView):
+    model = Exercise
+    template_name = 'all_workouts.html'  # Specify your template name
+    context_object_name = 'workout_genric'  # Name for the list in the template (optional)
+    login_url = 'my-login'
+
+    def get_queryset(self):
+        """
+        Return workouts linked to the logged-in user.
+        """
+        return Exercise.objects.filter(user=self.request.user)

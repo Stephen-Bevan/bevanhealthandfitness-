@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-5">
+    <h1 class="text-center mb-4">My Workouts</h1>
+    {% if workout_genric %}
+        <ul class="list-group">
+            {% for workout in workout_genric %}
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                    <span>
+                        <strong>{{ workout.name }}</strong>: {{ workout.sets }} sets of {{ workout.reps }} reps
+                    </span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <div class="alert alert-warning text-center" role="alert">
+            No workouts found. Start creating some!
+        </div>
+    {% endif %}
+</div>
+{% endblock %}
