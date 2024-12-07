@@ -2,17 +2,79 @@
 
 {% block content %}
 <div class="container mt-5">
-    <h1 class="text-center mb-4">My Workouts</h1>
+    <h1 class="text-center mb-4">{{ title }}</h1>
+
+    <!-- Total Workouts -->
+    <p class="text-center">Total Workouts: {{ total_workouts }}</p>
+
+    <!-- Add New Workout Button -->
+    <div class="text-end mb-3">
+        <a href="{% url 'workout-create' %}" class="btn btn-success">Add New Workout</a>
+    </div>
+
+    <!-- Search and Sorting -->
+    <div class="d-flex justify-content-between mb-3">
+        <!-- Search Form -->
+        <form method="get" class="form-inline">
+            <input type="text" name="q" class="form-control mr-2" placeholder="Search workouts..." value="{{ request.GET.q }}">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <!-- Sorting Dropdown -->
+        <form method="get" class="form-inline">
+            <label for="sort" class="mr-2">Sort by:</label>
+            <select name="sort" id="sort" class="form-control" onchange="this.form.submit()">
+                <option value="name" {% if request.GET.sort == 'name' %}selected{% endif %}>Name</option>
+                <option value="day" {% if request.GET.sort == 'day' %}selected{% endif %}>Day</option>
+                <option value="sets" {% if request.GET.sort == 'sets' %}selected{% endif %}>Sets</option>
+                <option value="reps" {% if request.GET.sort == 'reps' %}selected{% endif %}>Reps</option>
+                <option value="weights" {% if request.GET.sort == 'weights' %}selected{% endif %}>Weights</option>
+            </select>
+        </form>
+    </div>
+
+    <!-- Workouts List -->
     {% if workout_genric %}
         <ul class="list-group">
             {% for workout in workout_genric %}
                 <li class="list-group-item d-flex justify-content-between align-items-center">
-                    <span>
+                    <div>
                         <strong>{{ workout.name }}</strong>: {{ workout.sets }} sets of {{ workout.reps }} reps
-                    </span>
+                    </div>
+                    <div>
+                        <a href="{% url 'workout-update' workout.id %}" class="btn btn-warning btn-sm me-2">Edit</a>
+                        <a href="{% url 'workout-delete' workout.id %}" class="btn btn-danger btn-sm">Delete</a>
+                    </div>
                 </li>
             {% endfor %}
         </ul>
+
+        <!-- Pagination -->
+        <nav aria-label="Page navigation" class="mt-4">
+            <ul class="pagination justify-content-center">
+                {% if workout_genric.has_previous %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ workout_genric.previous_page_number }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+
+                {% for page_num in workout_genric.paginator.page_range %}
+                    <li class="page-item {% if page_num == workout_genric.number %}active{% endif %}">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ page_num }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}">{{ page_num }}</a>
+                    </li>
+                {% endfor %}
+
+                {% if workout_genric.has_next %}
+                    <li class="page-item">
+                        <a class="page-link" href="?{% if request.GET.q %}q={{ request.GET.q }}&{% endif %}page={{ workout_genric.next_page_number }}{% if request.GET.sort %}&sort={{ request.GET.sort }}{% endif %}" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                {% endif %}
+            </ul>
+        </nav>
     {% else %}
         <div class="alert alert-warning text-center" role="alert">
             No workouts found. Start creating some!

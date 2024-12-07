@@ -150,12 +150,41 @@ def workout_delete(request, pk):
 
 class ExerciseListView(LoginRequiredMixin, ListView):
     model = Exercise
-    template_name = 'all_workouts.html'  # Specify your template name
+    template_name = 'workout_list.html'  # Specify your template name
     context_object_name = 'workout_genric'  # Name for the list in the template (optional)
     login_url = 'my-login'
+    paginate_by = 10
 
     def get_queryset(self):
         """
-        Return workouts linked to the logged-in user.
+        Filter workouts based on the logged-in user and optional search/sort parameters.
         """
-        return Exercise.objects.filter(user=self.request.user)
+        queryset = Exercise.objects.filter(user=self.request.user)
+        query = self.request.GET.get('q')  # Get search query
+        sort = self.request.GET.get('sort', 'name')  # Default sort by name
+
+        # Apply search filter
+        if query:
+            queryset = queryset.filter(name__icontains=query)
+
+        # Apply sorting
+        if sort in ['name', 'day', 'sets', 'reps', 'weights']:
+            queryset = queryset.order_by(sort)
+
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        """
+        Add additional context for the template.
+        """
+        context = super().get_context_data(**kwargs)
+
+        # Calculate total workouts for the logged-in user (ignores pagination)
+        total_workouts = Exercise.objects.filter(user=self.request.user).count()
+
+        context['title'] = f"{self.request.user.username}'s Workout List"  # Dynamic title
+        context['total_workouts'] = total_workouts  # Add total workouts count
+
+        return context
+
+        
