@@ -125,3 +125,15 @@ footer {
   .high-contrast-navbar .nav-link.disabled {
     color: #cccccc; /* Light gray for disabled state */
   }
+
+ /* General Alert Styling */
+.alert {
+    width: 80%; /* Smaller width */
+    max-width: 500px; /* Limit the maximum width */
+    margin: 1rem auto; /* Center the alert horizontally with auto margins */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Better spacing */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    font-size: 1rem; /* Uniform font size */
+    transition: all 0.3s ease-in-out; /* Smooth animations */
+}

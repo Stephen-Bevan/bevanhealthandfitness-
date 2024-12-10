@@ -65,3 +65,13 @@ function validateForm() {
     // Enable/disable the Save button
     saveButton.disabled = !isValid;
 }
+document.addEventListener("DOMContentLoaded", function () {
+    const alerts = document.querySelectorAll(".alert");
+    alerts.forEach(function (alert) {
+        setTimeout(() => {
+            alert.classList.remove("show");
+            alert.classList.add("fade");
+            setTimeout(() => alert.remove(), 150); // Give time for the fade-out animation
+        }, 5000); // 5000ms = 5 seconds
+    });
+});
