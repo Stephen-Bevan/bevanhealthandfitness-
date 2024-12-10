@@ -101,3 +101,27 @@ footer {
     border-radius: 15px; 
     width: 500px;
 }
+
+.high-contrast-navbar {
+    background-color: #00264d; /* Dark navy for high contrast */
+    color: #ffffff; /* White text */
+  }
+  
+  .high-contrast-navbar .navbar-brand,
+  .high-contrast-navbar .nav-link {
+    color: #ffffff; /* Ensure links are white */
+  }
+  
+  .high-contrast-navbar .nav-link:hover,
+  .high-contrast-navbar .navbar-brand:hover {
+    color: #ffcc00; /* Gold for hover state */
+    text-decoration: underline;
+  }
+  
+  .high-contrast-navbar .navbar-toggler {
+    border-color: #ffffff; /* White border for toggle */
+  }
+
+  .high-contrast-navbar .nav-link.disabled {
+    color: #cccccc; /* Light gray for disabled state */
+  }
