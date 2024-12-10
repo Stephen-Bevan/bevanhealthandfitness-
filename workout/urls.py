@@ -10,6 +10,7 @@ from .views import (
     user_logout,
     myworkouts,
     ExerciseListView,
+    custom_404_view,
 )
 
 urlpatterns = [
@@ -18,15 +19,13 @@ urlpatterns = [
     path('workouts/new/', workout_create, name='workout-create'),  # Create workout
     path('workouts/<int:pk>/edit/', workout_update, name='workout-update'),  # Update workout
 
-    #NO NEESD FOR THIS PATH CAN DELIT BUT MUST FIX 
+    # You mentioned this path is not needed, so remove if confirmed
     path('workouts/<int:pk>/delete/', workout_delete, name='workout-delete'),  # Delete workout
-
 
     path('my-login/', my_login, name='my-login'),  # Login page
     path('register/', register, name='register'),  # Register page
     path('user-logout/', user_logout, name='user-logout'),  # Logout page
     path('myworkouts/', myworkouts, name='myworkouts'),  # User-specific workouts
-  
-
-
 ]
+
+

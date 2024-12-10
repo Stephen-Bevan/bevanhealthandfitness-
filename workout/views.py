@@ -7,6 +7,14 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import Exercise
 
+# Custom 404 view
+def custom_404_view(request, exception):
+    """
+    Renders a custom 404 error page.
+    """
+    return render(request, '404.html', status=404)
+
+
 # Home page view
 class HomePage(TemplateView):
     """

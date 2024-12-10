@@ -19,5 +19,8 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('workout.urls'), name='home'),
+    path('', include('workout.urls')),
 ]
+
+# Custom 404 handler
+handler404 = 'workout.views.custom_404_view'
