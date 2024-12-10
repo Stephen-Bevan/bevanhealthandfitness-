@@ -2,59 +2,71 @@
 
 {% block content %}
 
-<body>
-
 <!-- Hero Section -->
 <div class="container-fluid p-0">
-    <div class="hero-banner d-flex align-items-center justify-content-center" style="background-image: url('https://res.cloudinary.com/dzjes0lhd/image/upload/v1733830470/20241210_113134_iceeb5.jpg'); background-size: cover; background-position: center; height: 40vh; position: relative;">
-        <div class="overlay" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
-        <div class="content text-center" style="position: relative; z-index: 2; color: white;">
-            <h1 style="font-size: 2rem; font-weight: bold;">Welcome to Bevan Health and Fitness</h1>
-            <p class="lead" style="font-size: 1.2rem;">Achieve your fitness goals with personalized plans.</p>
-            <a href="{% url 'register' %}" class="btn btn-primary px-4 py-2" style="border-radius: 20px;">Join Now</a>
+    <div class="hero-banner d-flex align-items-center justify-content-center" 
+         style="background-image: url('https://res.cloudinary.com/dzjes0lhd/image/upload/v1733830470/20241210_113134_iceeb5.jpg'); 
+                background-size: cover; background-position: center; height: 40vh; position: relative;">
+        <div class="overlay" 
+             style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <div class="content text-center text-white position-relative z-2">
+            <h1 class="display-4 font-weight-bold">Welcome to Bevan Health and Fitness</h1>
+            <p class="lead">Achieve your fitness goals with personalized plans.</p>
+            <a href="{% url 'register' %}" class="btn btn-primary btn-lg rounded-pill">Join Now</a>
         </div>
     </div>
 </div>
-
 
 <!-- Features Section -->
 <div class="container mb-5">
     <h2 class="text-center text-primary mb-4">Our Features</h2>
-    <div class="row text-center gy-4">
+    <div class="row gy-4">
+        <!-- Feature 1 -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
-                <div class="card-body">
+                <div class="card-body text-center">
                     <i class="fas fa-dumbbell fa-3x text-primary mb-3"></i>
                     <h5 class="card-title">State-of-the-Art Equipment</h5>
-                    <p class="card-text">Access modern and well-maintained equipment to achieve your fitness goals.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-4">
-            <div class="card shadow-sm h-100">
-                <div class="card-body">
-                    <i class="fas fa-heartbeat fa-3x text-primary mb-3"></i>
-                    <h5 class="card-title">Personalized Programs</h5>
-                    <p class="card-text">
-                        Tailored workout plans to match your fitness level and objectives. 
-                        <a href="workout_list.html" class="text-primary">View Workout List</a>. 
-                        <br><small>Nutrition Programs Coming Soon!</small>
+                    <p class="card-text text-left">
+                        <ul>
+                            <li>Specialized and multi-purpose equipment for strength, cardio, and functional fitness.</li>
+                            <li>Extensive weights and resistance options for all levels.</li>
+                            <li>Well-ventilated space with excellent airflow.</li>
+                            <li>Outdoor training area with scenic countryside views.</li>
+                        </ul>
                     </p>
                 </div>
             </div>
         </div>
+        <!-- Feature 2 -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
-                <div class="card-body">
+                <div class="card-body text-center">
+                    <i class="fas fa-heartbeat fa-3x text-primary mb-3"></i>
+                    <h5 class="card-title">Personalized Programs</h5>
+                    <p class="card-text text-left">
+                        <ul>
+                            <li>One-to-one and small group personal training sessions.</li>
+                            <li>Group circuit and cardio classes for fun and motivation.</li>
+                            <li>Upcoming online personal training and custom nutrition plans.</li>
+                        </ul>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <!-- Feature 3 -->
+        <div class="col-md-4">
+            <div class="card shadow-sm h-100">
+                <div class="card-body text-center">
                     <i class="fas fa-user fa-3x text-primary mb-3"></i>
                     <h5 class="card-title">About Me</h5>
-                    <p class="card-text">Learn about my journey, expertise, and commitment to helping you achieve your fitness goals.</p>
+                    <p class="card-text text-left">
+                        My fitness journey began with a personal goal: to lose weight and gain muscle. In 2018, I became a certified trainer, helping clients achieve life-changing results. With experience in various gyms and now my own business in Bantry, I combine tailored workouts and expert guidance to support your fitness goals.
+                    </p>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
-
 
 {% endblock %}

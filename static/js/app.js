@@ -65,9 +65,10 @@ function validateForm() {
     // Enable/disable the Save button
     saveButton.disabled = !isValid;
 }
-document.addEventListener("DOMContentLoaded", function () {
+//timeing out for alerts
+    document.addEventListener("DOMContentLoaded", function () {
     const alerts = document.querySelectorAll(".alert");
-    alerts.forEach(function (alert) {
+        alerts.forEach(function (alert) {
         setTimeout(() => {
             alert.classList.remove("show");
             alert.classList.add("fade");
