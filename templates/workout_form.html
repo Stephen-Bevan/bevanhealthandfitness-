@@ -1,51 +1,107 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
-
-
 <div class="container mt-5">
-    <h1 class="text-center">{% if workout %}Edit{% else %}Add{% endif %} Workout</h1>
-    <form method="post" class="needs-validation" novalidate>
+    <h2 class="text-center mb-4">Create or Update Workout</h2>
+    <form method="POST" action="" class="needs-validation" novalidate>
         {% csrf_token %}
+        <!-- Workout Name -->
         <div class="mb-3">
-            <label for="name" class="form-label">Name:</label>
-            <input type="text" id="name" name="name" class="form-control" value="{{ workout.name|default:'' }}" required>
-            <div class="invalid-feedback">
-                Please provide a name for the workout.
-            </div>
+            <label for="name" class="form-label">Workout Name:</label>
+            <input 
+                type="text" 
+                id="name" 
+                name="name" 
+                class="form-control" 
+                placeholder="Enter workout name" 
+                value="{{ workout.name|default:'' }}" 
+                required 
+                oninput="validateForm()"
+            >
+            <div id="name-error" class="text-danger" style="display: none;">Please enter a workout name.</div>
         </div>
+
+        <!-- Day -->
         <div class="mb-3">
             <label for="day" class="form-label">Day:</label>
-            <input type="date" id="day" name="day" class="form-control" value="{{ workout.day|default:'' }}" required>
-            <div class="invalid-feedback">
-                Please select a date.
-            </div>
+            <input 
+                type="date" 
+                id="day" 
+                name="day" 
+                class="form-control" 
+                value="{{ workout.day|default:'' }}" 
+                required 
+                oninput="validateForm()"
+            >
+            <div id="date-error" class="text-danger" style="display: none;">Invalid date. Please enter a valid date in YYYY-MM-DD format.</div>
         </div>
+
+        <!-- Sets -->
         <div class="mb-3">
             <label for="sets" class="form-label">Sets:</label>
-            <input type="number" id="sets" name="sets" class="form-control" value="{{ workout.sets|default:'' }}" required>
-            <div class="invalid-feedback">
-                Please enter the number of sets.
-            </div>
+            <input 
+                type="number" 
+                id="sets" 
+                name="sets" 
+                class="form-control" 
+                placeholder="Enter number of sets" 
+                value="{{ workout.sets|default:'' }}" 
+                min="1" 
+                required 
+                oninput="validateForm()"
+            >
+            <div id="sets-error" class="text-danger" style="display: none;">Please enter a valid number of sets.</div>
         </div>
+
+        <!-- Reps -->
         <div class="mb-3">
             <label for="reps" class="form-label">Reps:</label>
-            <input type="number" id="reps" name="reps" class="form-control" value="{{ workout.reps|default:'' }}" required>
-            <div class="invalid-feedback">
-                Please enter the number of reps.
-            </div>
+            <input 
+                type="number" 
+                id="reps" 
+                name="reps" 
+                class="form-control" 
+                placeholder="Enter number of reps" 
+                value="{{ workout.reps|default:'' }}" 
+                min="1" 
+                required 
+                oninput="validateForm()"
+            >
+            <div id="reps-error" class="text-danger" style="display: none;">Please enter a valid number of reps.</div>
         </div>
+
+        <!-- Weights -->
         <div class="mb-3">
-            <label for="weights" class="form-label">Weights (kg):</label>
-            <input type="number" step="0.01" id="weights" name="weights" class="form-control" value="{{ workout.weights|default:'' }}" required>
-            <div class="invalid-feedback">
-                Please provide the weight in kilograms.
-            </div>
+            <label for="weights" class="form-label">Weights:</label>
+            <input 
+                type="number" 
+                step="0.01" 
+                id="weights" 
+                name="weights" 
+                class="form-control" 
+                placeholder="Enter weight (e.g., 10.50)" 
+                value="{{ workout.weights|default:'' }}" 
+                min="0" 
+                max="999.99" 
+                required 
+                oninput="validateForm()"
+            >
+            <div id="weights-error" class="text-danger" style="display: none;">Please enter a valid weight (up to 5 digits, with 2 decimal places).</div>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Save</button>
+
+        <!-- Error Message (if any) -->
+        {% if error %}
+            <div class="alert alert-danger" role="alert">
+                {{ error }}
+            </div>
+        {% endif %}
+
+        <!-- Submit and Cancel Buttons -->
+        <div class="d-flex justify-content-between">
+            <button type="submit" id="save-button" class="btn btn-primary" disabled>Save Workout</button>
+            <a href="{% url 'workout-list' %}" class="btn btn-secondary">Cancel</a>
+        </div>
     </form>
 </div>
-
 
 {% endblock %}

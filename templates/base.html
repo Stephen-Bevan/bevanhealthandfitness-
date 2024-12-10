@@ -30,6 +30,16 @@
 
         {% include 'navbar.html' %}
 
+         <!-- Messages -->
+         {% if messages %}
+         <div class="alerts-container">
+             <ul>
+                 {% for message in messages %}
+                     <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+                 {% endfor %}
+             </ul>
+         </div>
+         {% endif %}
 
         
         <div class="container">
@@ -50,6 +60,8 @@
 
         </div>
 
+        {% include 'footer.html' %}
+
         <script src="{% static 'js/app.js' %}"></script>
 
 
@@ -60,6 +72,5 @@
 
     </body>
 
-   {% include 'footer.html' %}
 
 </html>
