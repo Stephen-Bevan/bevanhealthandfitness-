@@ -1,19 +1,71 @@
-h1{ 
-    color: blue;
-}
 
- /* Hero Section */
-.hero-section {
-    background: url('path-to-your-hero-image.jpg') no-repeat center center/cover;
-    height: 70vh;
+.hero-banner {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh; /* Reduced height for a banner */
+    position: relative;
     display: flex;
-    margin-bottom: 50px; /* Added spacing below the hero section */
+    align-items: center; /* Vertically center content */
 }
 
-.bg-opacity-50 {
-    background-color: rgba(0, 0, 0, 0.5);
-    padding: 20px 40px; /* Add padding to the hero text block */
+.hero-banner .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for text readability */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
 }
+
+.hero-banner {
+    display: flex;
+    align-items: center; /* Vertical centering */
+    justify-content: center; /* Horizontal centering */
+    text-align: center; /* Ensure text alignment is centered */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 40vh; /* Banner height */
+    position: relative;
+}
+
+.hero-banner .overlay {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-banner .content {
+    position: relative; /* Content above overlay */
+    z-index: 2;
+    color: white; /* Text color */
+    text-align: center; /* Align text to center */
+    padding: 0 20px; /* Add padding for responsiveness */
+}
+
+.hero-banner h1 {
+    font-size: 2rem; /* Adjusted font size */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.hero-banner p {
+    font-size: 1.2rem; /* Adjusted text size */
+    margin-bottom: 20px;
+}
+
+.hero-banner .btn {
+    border-radius: 20px;
+    padding: 10px 20px;
+    font-size: 1rem;
+}
+
 
 /* Features Section */
 .card {

@@ -1,19 +1,21 @@
 {% extends 'base.html' %}
 
-
 {% block content %}
 
 <body>
+
 <!-- Hero Section -->
 <div class="container-fluid p-0">
-    <div class="hero-section text-center text-white d-flex align-items-center justify-content-center mb-5">
-        <div class="bg-dark bg-opacity-50 p-5 rounded">
-            <h1 class="mb-3">Welcome to Bevan Health and Fitness</h1>
-            <p class="lead">Discover the best place to achieve your fitness goals.</p>
-            <a href="{% url 'register' %}" class="btn btn-light btn-lg text-primary">Make an account here</a>
+    <div class="hero-banner d-flex align-items-center justify-content-center" style="background-image: url('https://res.cloudinary.com/dzjes0lhd/image/upload/v1733830470/20241210_113134_iceeb5.jpg'); background-size: cover; background-position: center; height: 40vh; position: relative;">
+        <div class="overlay" style="background-color: rgba(0, 0, 0, 0.6); position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></div>
+        <div class="content text-center" style="position: relative; z-index: 2; color: white;">
+            <h1 style="font-size: 2rem; font-weight: bold;">Welcome to Bevan Health and Fitness</h1>
+            <p class="lead" style="font-size: 1.2rem;">Achieve your fitness goals with personalized plans.</p>
+            <a href="{% url 'register' %}" class="btn btn-primary px-4 py-2" style="border-radius: 20px;">Join Now</a>
         </div>
     </div>
 </div>
+
 
 <!-- Features Section -->
 <div class="container mb-5">
@@ -49,11 +51,6 @@
     </div>
 </div>
 
-<h1> stactic files loading </h1>
 
 
 {% endblock %}
-
-
-
-
