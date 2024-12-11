@@ -1,168 +1,218 @@
-/* Hero Banner */
+/* ===================== */
+/* Hero Banner Section */
+/* ===================== */
+
+/* Styles for the hero banner section */
 .hero-banner {
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    background-size: cover; /* Ensures the background image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents background image repetition */
     height: 40vh; /* Adjusted height for responsiveness */
-    position: relative;
-    display: flex;
-    align-items: center; /* Vertically center content */
-    justify-content: center; /* Horizontally center content */
-    text-align: center; /* Center text alignment */
+    position: relative; /* For overlay positioning */
+    display: flex; /* Enables flexbox for alignment */
+    align-items: center; /* Vertically centers content */
+    justify-content: center; /* Horizontally centers content */
+    text-align: center; /* Centers text alignment */
 }
 
+/* Overlay for the hero banner */
 .hero-banner .overlay {
-    background-color: rgba(0, 0, 0, 0.6); /* Dark overlay for readability */
-    position: absolute;
+    background-color: rgba(0, 0, 0, 0.6); /* Adds a dark overlay for better text readability */
+    position: absolute; /* Stretches overlay to cover the hero banner */
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: 1;
+    z-index: 1; /* Places overlay below the content */
 }
 
+/* Content inside the hero banner */
 .hero-banner .content {
-    position: relative;
-    z-index: 2; /* Content above the overlay */
-    color: white;
-    text-align: center;
-    padding: 0 20px; /* Padding for smaller screens */
+    position: relative; /* Positions content above the overlay */
+    z-index: 2; /* Ensures content is above the overlay */
+    color: white; /* Makes text color white for contrast */
+    text-align: center; /* Centers text alignment */
+    padding: 0 20px; /* Adds padding for smaller screens */
 }
 
+/* Hero banner heading */
 .hero-banner h1 {
-    font-size: 2rem; /* Adjusted font size for readability */
+    font-size: 2rem; /* Adjusts font size for readability */
     font-weight: bold;
-    margin-bottom: 15px;
+    margin-bottom: 15px; /* Adds spacing below the heading */
 }
 
+/* Hero banner paragraph */
 .hero-banner p {
-    font-size: 1.2rem;
-    margin-bottom: 20px;
+    font-size: 1.2rem; /* Adjusts font size for readability */
+    margin-bottom: 20px; /* Adds spacing below the paragraph */
 }
 
+/* Hero banner button */
 .hero-banner .btn {
-    border-radius: 20px;
-    padding: 10px 20px;
-    font-size: 1rem;
+    border-radius: 20px; /* Rounds button edges */
+    padding: 10px 20px; /* Adds padding to the button */
+    font-size: 1rem; /* Sets font size for the button */
 }
 
+/* ===================== */
 /* Features Section */
+/* ===================== */
+
+/* Styling for feature cards */
 .card {
-    border: none;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: none; /* Removes border from the card */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
 
+/* Hover effect for feature cards */
 .card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-10px); /* Moves card upwards */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Adds shadow on hover */
 }
 
+/* Column spacing */
 .row .col-md-4 {
-    padding-top: 20px;
+    padding-top: 20px; /* Adds spacing above each column */
 }
 
+/* Container styling */
 .container {
-    padding: 20px 5%; /* Responsive container padding */
-    flex-grow: 1;
+    padding: 20px 5%; /* Adds responsive padding */
+    flex-grow: 1; /* Allows container to expand as needed */
 }
 
+/* Additional margin for containers */
 .container.mb-5 {
-    margin-bottom: 60px;
+    margin-bottom: 60px; /* Adds spacing below the container */
 }
 
+/* ===================== */
 /* High Contrast Navbar */
+/* ===================== */
+
+/* Styles for high-contrast navbar */
 .high-contrast-navbar {
-    background-color: #00264d;
-    color: #ffffff;
+    background-color: #00264d; /* Dark background color */
+    color: #ffffff; /* White text color */
 }
 
+/* Navbar brand and link styles */
 .high-contrast-navbar .navbar-brand,
 .high-contrast-navbar .nav-link {
-    color: #ffffff;
+    color: #ffffff; /* White text color */
 }
 
+/* Hover effect for navbar links */
 .high-contrast-navbar .nav-link:hover,
 .high-contrast-navbar .navbar-brand:hover {
-    color: #ffcc00;
-    text-decoration: underline;
+    color: #ffcc00; /* Highlight color */
+    text-decoration: underline; /* Underline effect */
 }
 
+/* Toggler button styling */
 .high-contrast-navbar .navbar-toggler {
-    border-color: #ffffff;
+    border-color: #ffffff; /* White border for the toggler */
 }
 
+/* Disabled link styling */
 .high-contrast-navbar .nav-link.disabled {
-    color: #cccccc;
+    color: #cccccc; /* Grey color for disabled links */
 }
 
+/* ===================== */
 /* Alert Styling */
+/* ===================== */
+
+/* Styling for alert boxes */
 .alert {
-    width: 80%;
-    max-width: 500px;
-    margin: 1rem auto;
-    border-radius: 8px;
-    padding: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    font-size: 1rem;
-    transition: all 0.3s ease-in-out;
+    width: 80%; /* Sets alert width */
+    max-width: 500px; /* Restricts maximum width */
+    margin: 1rem auto; /* Centers alert box */
+    border-radius: 8px; /* Rounds alert edges */
+    padding: 15px; /* Adds padding inside the alert */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Adds subtle shadow */
+    font-size: 1rem; /* Sets font size */
+    transition: all 0.3s ease-in-out; /* Smooth transitions */
 }
 
+/* ===================== */
 /* Form Layout */
+/* ===================== */
+
+/* Styling for forms */
 .form-layout {
-    border-radius: 15px;
-    width: 90%;
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+    border-radius: 15px; /* Rounds form edges */
+    width: 90%; /* Sets initial width */
+    max-width: 500px; /* Restricts maximum width */
+    margin: 0 auto; /* Centers the form */
+    padding: 20px; /* Adds padding inside the form */
+    box-sizing: border-box; /* Includes padding in total width */
 }
 
+/* Form layout for medium screens */
 @media (min-width: 768px) {
     .form-layout {
-        width: 70%;
+        width: 70%; /* Adjusts width for medium screens */
     }
 }
 
+/* Form layout for large screens */
 @media (min-width: 1024px) {
     .form-layout {
-        width: 500px;
+        width: 500px; /* Fixed width for large screens */
     }
 }
 
+/* ===================== */
 /* Wrapper for Page */
+/* ===================== */
+
+/* Styles for the body wrapper */
 body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    margin: 0;
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Arranges children vertically */
+    min-height: 100vh; /* Ensures full viewport height */
+    margin: 0; /* Removes default margin */
 }
 
-/* Main Content */
+/* ===================== */
+/* Main Content Section */
+/* ===================== */
+
+/* Styling for main content */
 main {
     flex: 1; /* Expands to fill available space */
-    display: flex;
-    flex-direction: column;
+    display: flex; /* Enables flexbox */
+    flex-direction: column; /* Arranges children vertically */
 }
 
-/* Footer */
+/* ===================== */
+/* Footer Section */
+/* ===================== */
+
+/* Footer styling */
 footer {
-    padding: 20px 10%;
-    text-align: center;
-    background-color: #f8f9fa;
-    box-sizing: border-box;
-    width: 100%;
-    
+    padding: 20px 10%; /* Adds padding */
+    text-align: center; /* Centers text alignment */
+    background-color: #f8f9fa; /* Light background color */
+    box-sizing: border-box; /* Includes padding in total width */
+    width: 100%; /* Ensures full width */
 }
 
+/* Footer styling for medium screens */
 @media (min-width: 768px) {
     footer {
-        padding: 20px 5%;
-        text-align: left;
+        padding: 20px 5%; /* Adjusts padding */
+        text-align: left; /* Aligns text to the left */
     }
 }
 
+/* Footer styling for large screens */
 @media (min-width: 1024px) {
     footer {
-        padding: 20px 50px;
+        padding: 20px 50px; /* Adds extra padding */
     }
 }
+
+

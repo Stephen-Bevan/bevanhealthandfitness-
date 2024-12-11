@@ -1,131 +1,179 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Bevan Health and Fitness
 
-Welcome Stephen Bevan,
+Welcome to **Bevan Health and Fitness**, an intuitive platform designed to help users manage their fitness goals, track progress, and achieve a healthier lifestyle. Whether you're just starting your fitness journey or are a seasoned athlete, our app provides the tools and insights to keep you on track.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
-
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
-
-## Gitpod Reminders
-
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
-
-`python3 -m http.server`
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
-
-A blue button should appear to click: _Make Public_,
-
-Another blue button should appear to click: _Open Browser_.
-
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
-
-### Connecting your Mongo database
-
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
-
-------
-
-## Release History
-
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
-
-**June 18, 2024,** Add Mongo back into template
-
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
-
-**May 28 2024:** Fix Mongo and Links installs
-
-**April 26 2024:** Update node version to 16
-
-**September 20 2023:** Update Python version to 3.9.17.
-
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
-
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
-
-**July 2 2021:** Remove extensions that are not available in Open VSX.
-
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
-
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
-
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
-
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
-
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
-
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
-
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
-
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
-
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+Live Project: [Bevan Health and Fitness](https://bevanhealthandfitness-6624380c9483.herokuapp.com/)
 
 ---
 
-Happy coding!
+## Index
+
+1. [User Experience (UX)](#user-experience-ux)
+2. [Features](#features)
+3. [Design](#design)
+4. [Technologies Used](#technologies-used)
+5. [Testing](#testing)
+6. [Deployment](#deployment)
+7. [Future Features](#future-features)
+8. [Credits](#credits)
+
+---
+
+## User Experience (UX)
+
+## Features
+
+### **Hero Section**
+- Engaging hero banner with a welcoming message and call-to-action button for registration.
+- Overlay effect with prominent text and button styling.
+
+### **Navigation Bar**
+- Responsive navbar with:
+  - Links to Home, Login, and Register pages for unauthenticated users.
+  - Links to Dashboard and Logout for authenticated users.
+  - Dynamic display of the logged-in user's username.
+
+### **Dashboard**
+- A welcoming dashboard with:
+  - Personalized greeting for the logged-in user.
+  - Quick links to manage workouts:
+    - View "My Workouts Log".
+    - Create a new workout.
+    - Placeholder links for future features like class booking, online personal training, and nutrition plans.
+
+### **Workout Management**
+- **Create or Update Workout Form**:
+  - Fields for workout name, day, sets, reps, and weights.
+  - Real-time form validation with custom error messages for missing or invalid inputs.
+  - A "Save Workout" button dynamically enabled or disabled based on input validity.
+  - Redirect to a workout list or cancel action.
+- **Workout List**:
+  - List of all logged workouts with options to edit or delete.
+  - Notifications for successful creation, update, or deletion.
+
+### **Features Section**
+- Highlights of the app, including:
+  - **State-of-the-Art Equipment**: Details about the quality and variety of fitness equipment.
+  - **Personalized Programs**: One-to-one training, group sessions, and online training plans.
+  - **About Me**: A story of the founder's fitness journey and professional credentials.
+
+### **404 Page**
+- Custom 404 error page with:
+  - A friendly message indicating the page is not found.
+  - A call-to-action button to redirect users back to the homepage.
+
+---
+
+## Design
+
+### Wireframes
+- Created using **Balsamiq** to visualize the layout and functionality.
+- ![Wireframe](path_to_your_wireframe_image)
+
+### Mockup
+- Image of the site
+- ![Site Image](path_to_site_image)
+
+### ERD/Model
+- Image of the ERD/Model
+- ![ERD/Model](path_to_erd_image)
+
+### Fonts
+- **Roboto (Google Font)**: Chosen for its readability and modern appeal.
+
+### Color Scheme
+- **Blue and White**: Represents trust, clarity, and cleanliness.
+- **Green Accents**: Symbolizes health and progress.
+
+### Responsive Design
+- Ensures optimal user experience across different screen sizes using **Bootstrap** and **CSS media queries**.
+
+---
+
+## Technologies Used
+
+### **Languages**
+- HTML5
+- CSS3
+- Python/Django
+- Java
+
+### **Database**
+- ElephantSQL Postgres Database
+
+### **Libraries & Tools**
+- **Bootstrap**: For responsive design.
+- **FontAwesome**: Icons for features and navigation.
+- **GitHub**: Repository management.
+- **Visual Studio Code**: Code editor.
+- **Balsamiq**: Wireframe creation.
+
+---
+
+## Testing
+
+### Manual Testing
+
+| Feature                      | Action                        | Expected Outcome             | Result       |
+|------------------------------|-------------------------------|------------------------------|--------------|
+| Hero Section CTA Button      | Click "Join Now"             | Redirects to the Register page| Worked as expected |
+| Navigation Links             | Click each link in the navbar| Redirects to the correct page| Worked as expected |
+| User Registration            | Submit valid/invalid inputs   | Creates account / Shows error| Worked as expected |
+| Log In                       | Enter valid/invalid credentials| Logs in / Shows error         | Worked as expected |
+| Dashboard Links              | Click quick links on Dashboard| Navigates to respective pages | Worked as expected |
+| Create Workout Form          | Fill out form and submit      | Saves workout to database     | Worked as expected |
+| Edit/Delete Workout          | Click respective buttons      | Updates or removes workout    | Worked as expected |
+| 404 Page                     | Access invalid URL            | Displays custom 404 page      | Worked as expected |
+
+---
+
+## Future Features
+
+### **Class Booking**
+- Enable users to book group classes directly from the platform.
+
+### **Online Personal Training**
+- Launch an online personal training feature with custom workout plans.
+
+### **Nutrition Plans**
+- Provide personalized nutrition plans to complement fitness goals.
+
+---
+
+## Credits
+
+- **Code Institute LMS**: For guidance and templates.
+- **Google**: Resources for troubleshooting and inspiration.
+- **Balsamiq**: Wireframe creation.
+- **FontAwesome**: Icons used for visual enhancements.
+- **CRUD mastery with Django | Build a CRM application**: [YouTube Tutorial](https://www.youtube.com/watch?v=pqWyUAT38e0&t=2806s)
+- **Davidcalikes**: Inspiration from [mypse project](https://github.com/davidcalikes/mypse.ie/blob/main/passport/views.py)
+- **ChatGPT and Stack Overflow**: For bug fixes.
+- **Coding Coaches at Code Institute**: @kevin_ci
+- **John Rearden**
+
+---
+
+## Technologies Used
+
+- **asgiref**: 3.8.1
+- **cloudinary**: 1.41.0
+- **dj-database-url**: 0.5.0
+- **dj3-cloudinary-storage**: 0.0.6
+- **Django**: 4.2.16
+- **gunicorn**: 20.1.0
+- **psycopg**: 3.2.3
+- **sqlparse**: 0.5.2
+- **urllib3**: 1.26.20
+- **whitenoise**: 5.3.0
+- **Bootstrap**: For theming with Bootswatch
+
+---
+
+## Compliance Testing
+
+- **PEP8 Compliance**: Verified that all Python code meets PEP8 standards.
+- **HTML Validation**: Ensured all templates are error-free using HTML validation tools.
+- **CSS Validation**: Confirmed that all CSS stylesheets pass through Jigsaw with no validation errors.
+
+These technologies and tools were thoroughly tested and validated to ensure a robust and error-free application.
