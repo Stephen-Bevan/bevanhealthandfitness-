@@ -14,18 +14,30 @@ from .views import (
 )
 
 urlpatterns = [
-    path('', HomePage.as_view(), name='home'),  # Home page URL
-    path('workouts/', workout_list, name='workout-list'),  # List workouts
-    path('workouts/new/', workout_create, name='workout-create'),  # Create workout
-    path('workouts/<int:pk>/edit/', workout_update, name='workout-update'),  # Update workout
+    # Route for the home page, which serves as the entry point for the application
+    path('', HomePage.as_view(), name='home'),
 
-    # You mentioned this path is not needed, so remove if confirmed
-    path('workouts/<int:pk>/delete/', workout_delete, name='workout-delete'),  # Delete workout
+    # Route to display a list of all workouts for the logged-in user
+    path('workouts/', workout_list, name='workout-list'),
 
-    path('my-login/', my_login, name='my-login'),  # Login page
-    path('register/', register, name='register'),  # Register page
-    path('user-logout/', user_logout, name='user-logout'),  # Logout page
-    path('myworkouts/', myworkouts, name='myworkouts'),  # User-specific workouts
+    # Route to create a new workout, accessible only to logged-in users
+    path('workouts/new/', workout_create, name='workout-create'),
+
+    # Route to update an existing workout by its primary key (pk), for authorized users
+    path('workouts/<int:pk>/edit/', workout_update, name='workout-update'),
+
+    # Route to delete a workout by its primary key (pk), ensuring only the owner can delete
+    path('workouts/<int:pk>/delete/', workout_delete, name='workout-delete'),
+
+    # Route for the login page, allowing users to authenticate
+    path('my-login/', my_login, name='my-login'),
+
+    # Route for the registration page, enabling new users to sign up
+    path('register/', register, name='register'),
+
+    # Route for logging out the user and redirecting them to the homepage
+    path('user-logout/', user_logout, name='user-logout'),
+
+    # Route for viewing the logged-in user's personal workout dashboard
+    path('myworkouts/', myworkouts, name='myworkouts'),
 ]
-
-

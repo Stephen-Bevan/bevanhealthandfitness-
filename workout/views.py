@@ -1,33 +1,25 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib import messages
-from .form import UserCreationForm, LoginForm
 from django.views.generic import TemplateView, ListView
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
+from .form import UserCreationForm, LoginForm
 from .models import Exercise
 
 # Custom 404 view
 def custom_404_view(request, exception):
-    """
-    Renders a custom 404 error page.
-    """
+    # Render a user-friendly 404 error page when a page is not found
     return render(request, '404.html', status=404)
-
 
 # Home page view
 class HomePage(TemplateView):
-    """
-    Displays the home page.
-    """
+    # Render the homepage with a basic template
     template_name = 'index.html'
-
 
 # Register a user
 def register(request):
-    """
-    Handles user registration and displays feedback messages.
-    """
+    # Handles user registration by validating form input and saving new users
     form = UserCreationForm()
 
     if request.method == "POST":
@@ -36,18 +28,14 @@ def register(request):
             form.save()
             messages.success(request, "Registration successful! You can now log in.")
             return redirect('home')
-        else:
-            messages.error(request, "There was an error with your registration. Please try again.")
+        messages.error(request, "There was an error with your registration. Please try again.")
 
     context = {'form': form}
     return render(request, 'register.html', context)
 
-
 # Login a user
 def my_login(request):
-    """
-    Handles user login and provides feedback messages.
-    """
+    # Authenticates and logs in a user, with error handling for invalid credentials
     form = LoginForm()
 
     if request.method == "POST":
@@ -61,65 +49,49 @@ def my_login(request):
                 login(request, user)
                 messages.success(request, f"Welcome back, {user.username}!")
                 return redirect('home')
-            else:
-                messages.error(request, "Invalid username or password. Please try again.")
+            messages.error(request, "Invalid username or password. Please try again.")
         else:
             messages.error(request, "There was an error with your login. Please check your details.")
 
     context = {'form': form}
     return render(request, 'my-login.html', context)
 
-
 # My workouts view
 @login_required(login_url='my-login')
 def myworkouts(request):
-    """
-    Displays the user's workouts.
-    """
+    # Display the user's workouts dashboard for logged-in users
     return render(request, 'myworkouts.html')
-
 
 # User logout
 def user_logout(request):
-    """
-    Logs out the user and displays a feedback message.
-    """
+    # Logs out the current user and redirects to the homepage with a message
     logout(request)
     messages.info(request, "You have been logged out. See you next time!")
     return redirect('home')
 
-
 # List workouts
 @login_required
 def workout_list(request):
-    """
-    Displays a list of workouts created by the logged-in user.
-    """
+    # Fetch and display all workouts belonging to the logged-in user
     workouts = Exercise.objects.filter(user=request.user)
     return render(request, 'workout_list.html', {'workouts': workouts})
-
 
 # Create a workout
 @login_required
 def workout_create(request):
-    """
-    Handles creating a new workout with error handling and feedback messages.
-    """
+    # Allow users to add a new workout with input validation for numeric fields
     if request.method == 'POST':
-        # Extract workout details from POST request
         name = request.POST.get('name', '').strip()
         day = request.POST.get('day', '').strip()
         sets = request.POST.get('sets', '').strip()
         reps = request.POST.get('reps', '').strip()
         weights = request.POST.get('weights', '').strip()
 
-        # Validation for empty fields
         if not all([name, day, sets, reps, weights]):
             messages.error(request, "All fields are required. Please fill in all fields.")
             return render(request, 'workout_form.html', {'error': "All fields are required."})
 
         try:
-            # Validate numeric inputs
             sets = int(sets)
             reps = int(reps)
             weights = float(weights)
@@ -127,7 +99,6 @@ def workout_create(request):
             if sets <= 0 or reps <= 0 or weights < 0:
                 raise ValueError("Invalid input values.")
 
-            # Save the workout to the database
             Exercise.objects.create(
                 user=request.user,
                 name=name,
@@ -140,16 +111,13 @@ def workout_create(request):
             return redirect('workout-list')
         except ValueError:
             messages.error(request, "Invalid input for sets, reps, or weights. Please ensure they are positive numbers.")
-    
-    return render(request, 'workout_form.html')
 
+    return render(request, 'workout_form.html')
 
 # Update a workout
 @login_required
 def workout_update(request, pk):
-    """
-    Handles updating an existing workout and provides feedback messages.
-    """
+    # Enable users to edit an existing workout if they own it
     workout = get_object_or_404(Exercise, pk=pk, user=request.user)
 
     if request.method == 'POST':
@@ -164,13 +132,10 @@ def workout_update(request, pk):
 
     return render(request, 'workout_form.html', {'workout': workout})
 
-
 # Delete a workout
 @login_required
 def workout_delete(request, pk):
-    """
-    Handles deleting an existing workout and provides feedback messages.
-    """
+    # Allow users to delete a workout they own with confirmation
     workout = get_object_or_404(Exercise, pk=pk, user=request.user)
 
     if request.method == 'POST':
@@ -180,40 +145,13 @@ def workout_delete(request, pk):
 
     return render(request, 'workout_confirm_delete.html', {'workout': workout})
 
-
 # Generic view test
 class ExerciseListView(LoginRequiredMixin, ListView):
-    """
-    Generic view to display a paginated list of workouts with search and sorting functionality.
-    """
+    # Display a list of workouts with pagination and optional search and sorting
     model = Exercise
     template_name = 'workout_list.html'
-    context_object_name = 'workout_genric'
+    context_object_name = 'workout_generic'
     login_url = 'my-login'
     paginate_by = 10
 
-    def get_queryset(self):
-        """
-        Filter workouts based on the logged-in user and optional search/sort parameters.
-        """
-        queryset = Exercise.objects.filter(user=self.request.user)
-        query = self.request.GET.get('q')  # Get search query
-        sort = self.request.GET.get('sort', 'name')  # Default sort by name
-
-        if query:
-            queryset = queryset.filter(name__icontains=query)
-
-        if sort in ['name', 'day', 'sets', 'reps', 'weights']:
-            queryset = queryset.order_by(sort)
-
-        return queryset
-
-    def get_context_data(self, **kwargs):
-        """
-        Add additional context for the template, including total workouts count.
-        """
-        context = super().get_context_data(**kwargs)
-        total_workouts = Exercise.objects.filter(user=self.request.user).count()
-        context['title'] = f"{self.request.user.username}'s Workout List"
-        context['total_workouts'] = total_workouts
-        return context
+    

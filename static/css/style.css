@@ -63,6 +63,7 @@
 
 .container {
     padding: 20px 5%; /* Responsive container padding */
+    flex-grow: 1;
 }
 
 .container.mb-5 {
@@ -150,6 +151,7 @@ footer {
     background-color: #f8f9fa;
     box-sizing: border-box;
     width: 100%;
+    
 }
 
 @media (min-width: 768px) {
