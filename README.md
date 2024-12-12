@@ -39,8 +39,8 @@ Welcome to **Bevan Health and Fitness**, an intuitive platform designed to help 
 - Developed using **Balsamiq** for layout planning.
 
 ![Wireframe Example - Homepage](Readme_images/Wireframe_files/Page_1_homepage.png)
-![Wireframe Example - Workout Logger](Readme_images/Wireframe_files/Page_2_Workout_Logger.png)
-![Wireframe Example - Login](Readme_images/Wireframe_files/Page_3_Login_copy.png)
+![Wireframe Example - Workout Logger](Readme_images/Wireframe_files/Page_2_Workout_Loger.png)
+![Wireframe Example - Login](Readme_images/Wireframe_files/Page_3_Login.png)
 
 ### **Database Planning**
 - Designed using an **Entity Relationship Diagram (ERD)**.
@@ -135,6 +135,7 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 ## Testing
 
 ### **Manual Testing**
+
 | Feature                 | Action                          | Expected Outcome              | Result             |
 |-------------------------|---------------------------------|-------------------------------|--------------------|
 | Hero Section CTA Button | Click "Join Now"               | Redirects to Register page    | Worked as expected |
@@ -147,25 +148,44 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 | 404 Page                | Access invalid URL             | Displays custom 404 page      | Worked as expected |
 
 ### **Compliance Testing**
+
 - **PEP8 Compliance**: Python code adheres to PEP8 standards.
   
-  ![PEP8 Testing Screenshot](Readme_images/Screenshots_CSS_HTML_Python/Python_Code_Validated.PNG)
+  ![PEP8 Testing Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/Pyton_code_Validated.PNG)
+
 - **HTML Validation**: Templates validated for errors.
   
-  ![HTML Validation Screenshot](Readme_images/Screenshots_CSS_HTML_Python/HTML_Validated.PNG)
+  ![HTML Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/HTML_Validated.PNG)
+
 - **CSS Validation**: All stylesheets validated error-free.
   
-  ![CSS Validation Screenshot](Readme_images/Screenshots_CSS_HTML_Python/CSS_Test_Validated.PNG)
+  ![CSS Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/CSS_Test_Validated.PNG)
 
 ### **Testing Screenshots**
-- ![Hero Section Testing](Readme_images/Screenshots_Features_testing/Homepage.png)
-- ![Navigation Links Testing](Readme_images/Screenshots_Features_testing/Navbar.png)
-- ![User Registration Testing](Readme_images/Screenshots_Features_testing/Registration_Successful.PNG)
-- ![Log In Testing](Readme_images/Screenshots_Features_testing/Account_Login.png)
-- ![Dashboard Links Testing](Readme_images/Screenshots_Features_testing/Dashboard_Links.png)
-- ![Create Workout Form Testing](Readme_images/Screenshots_Features_testing/Workout_Saved.PNG)
-- ![Edit/Delete Workout Testing](Readme_images/Screenshots_Features_testing/Workout_Deleted_Confirmed.png)
-- ![404 Page Testing](Readme_images/Screenshots_Features_testing/404_Page.png)
+
+- Hero Section Testing:
+  ![Hero Section Testing](Readme_images/Screenshots_Features_testing/homepage.png)
+
+- Navigation Links Testing:
+  ![Navigation Links Testing](Readme_images/Screenshots_Features_testing/nav_bar.PNG)
+
+- User Registration Testing:
+  ![User Registration Testing](Readme_images/Screenshots_Features_testing/reg_successful.PNG)
+
+- Log In Testing:
+  ![Log In Testing](Readme_images/Screenshots_Features_testing/shows_a_successfulaccount_login_message.png)
+
+- Dashboard Links Testing:
+  ![Dashboard Links Testing](Readme_images/Screenshots_Features_testing/Dashbord.PNG)
+
+- Create Workout Form Testing:
+  ![Create Workout Form Testing](Readme_images/Screenshots_Features_testing/workout_saved.PNG)
+
+- Edit/Delete Workout Testing:
+  ![Edit/Delete Workout Testing](Readme_images/Screenshots_Features_testing/Workout_deleted_confrmed.png)
+
+- 404 Page Testing:
+  ![404 Page Testing](Readme_images/Screenshots_Features_testing/404_page.png)
 
 ---
 
@@ -173,23 +193,26 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 
 - **Django Alert Message**: Alert messages are white and unreadable when a user attempts to register with a username already taken. This issue remains unresolved but is marked for future updates.
 
-![Known Bug - Username Taken](Readme_images/Screenshots_Features_testing/Known_Bug_Registration_Username.PNG)
+  ![Known Bug - Username Taken](Readme_images/Screenshots_Features_testing/Known_Bug_reg_same_username.PNG)
 
 ---
 
 ## Deployment
 
 ### **Steps**
+
 1. Created the Heroku app.
 2. Set up environment variables for secure data handling.
 3. Configured Procfile for deployment.
 4. Pushed the project to Heroku via Git.
 
 ### **Forking the Repository**
+
 1. Navigate to the [GitHub Repository](https://github.com/Stephen-Bevan/bevanhealthandfitness).
 2. Click "Fork" at the top right of the page.
 
 ### **Cloning the Repository**
+
 1. Navigate to the [GitHub Repository](https://github.com/Stephen-Bevan/bevanhealthandfitness).
 2. Click the "Code" button.
 3. Copy the HTTPS link and run `git clone [link]` in your terminal.
