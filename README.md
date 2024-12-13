@@ -6,6 +6,8 @@ Welcome to **Bevan Health and Fitness**, an intuitive platform designed to help 
 
 [Live Project: Bevan Health and Fitness](https://bevanhealthandfitness-6624380c9483.herokuapp.com/)
 
+![amiresponsive](Readme_images/amiresponsive/project.png)
+
 ---
 
 ## Table of Contents
@@ -194,6 +196,10 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 - **Django Alert Message**: Alert messages are white and unreadable when a user attempts to register with a username already taken. This issue remains unresolved but is marked for future updates.
 
   ![Known Bug - Username Taken](Readme_images/Screenshots_Features_testing/Known_Bug_reg_same_username.PNG)
+
+- **Date Resets Issue**: When editing a record, the date resets. Additionally, the weight field does not display "kg" as intended. 
+
+  ![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
 
 ---
 
