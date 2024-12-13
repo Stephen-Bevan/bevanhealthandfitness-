@@ -153,15 +153,21 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 
 - **PEP8 Compliance**: Python code adheres to PEP8 standards.
   
-  ![PEP8 Testing Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/Pyton_code_Validated.PNG)
+  ![PEP8 Testing Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton,Js/Pyton_code_Validated.PNG)
 
 - **HTML Validation**: Templates validated for errors.
   
-  ![HTML Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/HTML_Validated.PNG)
+  ![HTML Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton,Js/HTML_Validated.PNG)
 
 - **CSS Validation**: All stylesheets validated error-free.
   
-  ![CSS Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton/CSS_Test_Validated.PNG)
+  ![CSS Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton,Js/CSS_Test_Validated.PNG)
+
+- **JS Validation**: Templates validated for errors.
+  
+  ![JS Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton,Js/Jsvalidated.PNG)
+
+
 
 ### **Testing Screenshots**
 
@@ -202,6 +208,18 @@ Project management was conducted using GitHub Projects. [View the Project Board]
   ![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
 
 ---
+
+### **Lighthouse testing **
+
+main page 
+![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
+
+other pages 
+
+![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
+
+
+### **WCAG Color contrast testing **
 
 ## Deployment
 
