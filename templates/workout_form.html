@@ -2,9 +2,13 @@
 
 {% block content %}
 <div class="container mt-5">
+    <!-- Page Title -->
     <h2 class="text-center mb-4">Create or Update Workout</h2>
+
+    <!-- Workout Form -->
     <form method="POST" action="." class="needs-validation" novalidate>
         {% csrf_token %}
+
         <!-- Workout Name -->
         <div class="mb-3">
             <label for="name" class="form-label">Workout Name:</label>
@@ -21,7 +25,7 @@
             <div id="name-error" class="text-danger" style="display: none;">Please enter a workout name.</div>
         </div>
 
-        <!-- Day -->
+        <!-- Workout Day -->
         <div class="mb-3">
             <label for="day" class="form-label">Day:</label>
             <input 
@@ -36,7 +40,7 @@
             <div id="date-error" class="text-danger" style="display: none;">Invalid date. Please enter a valid date in YYYY-MM-DD format.</div>
         </div>
 
-        <!-- Sets -->
+        <!-- Number of Sets -->
         <div class="mb-3">
             <label for="sets" class="form-label">Sets:</label>
             <input 
@@ -53,7 +57,7 @@
             <div id="sets-error" class="text-danger" style="display: none;">Please enter a valid number of sets.</div>
         </div>
 
-        <!-- Reps -->
+        <!-- Number of Reps -->
         <div class="mb-3">
             <label for="reps" class="form-label">Reps:</label>
             <input 
@@ -91,9 +95,9 @@
 
         <!-- Error Message (if any) -->
         {% if error %}
-            <div class="alert alert-danger" role="alert">
-                {{ error }}
-            </div>
+        <div class="alert alert-danger" role="alert">
+            {{ error }}
+        </div>
         {% endif %}
 
         <!-- Submit and Cancel Buttons -->
@@ -103,5 +107,4 @@
         </div>
     </form>
 </div>
-
 {% endblock %}

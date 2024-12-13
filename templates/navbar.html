@@ -1,6 +1,9 @@
 <nav class="navbar navbar-expand-lg bg-primary navbar-dark high-contrast-navbar">
   <div class="container-fluid">
+    <!-- Brand Logo -->
     <a class="navbar-brand" href="{% url 'home' %}">Bevan Health and Fitness</a>
+    
+    <!-- Mobile Toggle Button -->
     <button
       class="navbar-toggler"
       type="button"
@@ -12,28 +15,35 @@
     >
       <span class="navbar-toggler-icon"></span>
     </button>
+    
+    <!-- Navbar Links -->
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
       <ul class="navbar-nav ms-auto">
         {% if user.is_authenticated %}
+        <!-- Dashboard Link for Logged-in Users -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'myworkouts' %}">
-            My Dashbord<i class="fa fa-home" aria-hidden="true"></i>
+            My Dashboard <i class="fa fa-home" aria-hidden="true"></i>
           </a>
         </li>
+        <!-- Logout Link -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'user-logout' %}">
             Sign out <i class="fa fa-sign-out" aria-hidden="true"></i>
           </a>
         </li>
+        <!-- Disabled Link Showing Username -->
         <li class="nav-item">
           <a class="nav-link disabled" tabindex="-1" aria-disabled="true">
             {{ user.username }}
           </a>
         </li>
         {% else %}
+        <!-- Register Link for Guests -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'register' %}">Register</a>
         </li>
+        <!-- Login Link for Guests -->
         <li class="nav-item">
           <a class="nav-link" href="{% url 'my-login' %}">Login</a>
         </li>
@@ -42,4 +52,3 @@
     </div>
   </div>
 </nav>
-

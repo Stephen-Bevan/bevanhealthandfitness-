@@ -1,15 +1,16 @@
 {% extends 'base.html' %}
 
 {% block content %}
-
 <!-- Hero Section -->
 <div class="container-fluid p-0">
     <div class="hero-banner d-flex align-items-center justify-content-center" 
          style="background-image: url('https://res.cloudinary.com/dzjes0lhd/image/upload/v1733830470/20241210_113134_iceeb5.jpg');">
         <div class="overlay"></div>
         <div class="content text-center text-white position-relative z-2">
+            <!-- Hero Header -->
             <h1 class="display-4 font-weight-bold">Welcome to Bevan Health and Fitness</h1>
             <p class="lead">Achieve your fitness goals with personalized plans.</p>
+            <!-- Call-to-Action Button -->
             <a href="{% url 'register' %}" class="btn btn-primary btn-lg rounded-pill">Join Now</a>
         </div>
     </div>
@@ -19,7 +20,7 @@
 <div class="container mb-5">
     <h2 class="text-center text-primary mb-4">Our Features</h2>
     <div class="row gy-4">
-        <!-- Feature 1 -->
+        <!-- Feature 1: Equipment -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
                 <div class="card-body text-center">
@@ -34,7 +35,7 @@
                 </div>
             </div>
         </div>
-        <!-- Feature 2 -->
+        <!-- Feature 2: Personalized Programs -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
                 <div class="card-body text-center">
@@ -48,7 +49,7 @@
                 </div>
             </div>
         </div>
-        <!-- Feature 3 -->
+        <!-- Feature 3: About Me -->
         <div class="col-md-4">
             <div class="card shadow-sm h-100">
                 <div class="card-body text-center">
@@ -62,5 +63,4 @@
         </div>
     </div>
 </div>
-
 {% endblock %}

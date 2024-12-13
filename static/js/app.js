@@ -1,12 +1,13 @@
 function validateForm() {
-    const nameInput = document.getElementById("name");
-    const dateInput = document.getElementById("day");
-    const setsInput = document.getElementById("sets");
-    const repsInput = document.getElementById("reps");
-    const weightsInput = document.getElementById("weights");
-    const saveButton = document.getElementById("save-button");
+    // Input elements
+    var nameInput = document.getElementById("name");
+    var dateInput = document.getElementById("day");
+    var setsInput = document.getElementById("sets");
+    var repsInput = document.getElementById("reps");
+    var weightsInput = document.getElementById("weights");
+    var saveButton = document.getElementById("save-button");
 
-    let isValid = true;
+    var isValid = true;
 
     // Workout Name validation
     if (nameInput.value.trim() === "") {
@@ -19,9 +20,9 @@ function validateForm() {
     }
 
     // Day validation
-    const enteredDate = new Date(dateInput.value);
-    const isValidDate = !isNaN(enteredDate.getTime());
-    const isReasonableYear = enteredDate.getFullYear() >= 1900 && enteredDate.getFullYear() <= 2100;
+    var enteredDate = new Date(dateInput.value);
+    var isValidDate = !isNaN(enteredDate.getTime());
+    var isReasonableYear = enteredDate.getFullYear() >= 1900 && enteredDate.getFullYear() <= 2100;
 
     if (!isValidDate || !isReasonableYear) {
         document.getElementById("date-error").style.display = "block";
@@ -62,17 +63,21 @@ function validateForm() {
         weightsInput.classList.remove("is-invalid");
     }
 
-    // Enable/disable the Save button
+    // Enable or disable the Save button based on form validity
     saveButton.disabled = !isValid;
 }
-//timeing out for alerts
-    document.addEventListener("DOMContentLoaded", function () {
-    const alerts = document.querySelectorAll(".alert");
-        alerts.forEach(function (alert) {
-        setTimeout(() => {
-            alert.classList.remove("show");
-            alert.classList.add("fade");
-            setTimeout(() => alert.remove(), 150); // Give time for the fade-out animation
-        }, 5000); // 5000ms = 5 seconds
+
+// Timing out alerts
+document.addEventListener("DOMContentLoaded", function () {
+    // Select all alert elements
+    var alerts = document.querySelectorAll(".alert");
+    Array.prototype.forEach.call(alerts, function (alert) {
+        setTimeout(function () {
+            alert.classList.remove("show"); // Hide the alert
+            alert.classList.add("fade"); // Add fade-out animation
+            setTimeout(function () {
+                alert.parentNode.removeChild(alert); // Remove after fade-out
+            }, 150); // Remove after fade-out
+        }, 5000); // Alerts disappear after 5 seconds
     });
 });

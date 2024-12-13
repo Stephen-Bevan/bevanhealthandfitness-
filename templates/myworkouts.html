@@ -2,22 +2,28 @@
 
 {% block content %}
 <div class="container mt-5">
+    <!-- Dashboard Header -->
     <div class="text-center mb-4">
         <h1 class="text-primary">My Dashboard</h1>
         <p class="fs-5 text-muted">
             Welcome {{ user.username }}! This app is designed to help you track your workouts, manage your progress, and stay consistent with your fitness goals.
         </p>
     </div>
+
+    <!-- Quick Links Section -->
     <div class="card shadow-lg mb-4">
         <div class="card-body">
             <h3 class="text-primary">Quick Links</h3>
             <ul class="list-group list-group-flush">
+                <!-- Link to Workout Log -->
                 <li class="list-group-item">
                     <a href="{% url 'workout-list' %}" class="btn btn-link">My Workouts Log</a>
                 </li>
+                <!-- Link to Create New Workout -->
                 <li class="list-group-item">
                     <a href="{% url 'workout-create' %}" class="btn btn-link">Create a New Workout</a>
                 </li>
+                <!-- Placeholder Links for Future Features -->
                 <li class="list-group-item">
                     <a href="#" class="btn btn-link disabled">Class Booking (Coming Soon)</a>
                 </li>
@@ -30,6 +36,5 @@
             </ul>
         </div>
     </div>
-    
 </div>
 {% endblock %}

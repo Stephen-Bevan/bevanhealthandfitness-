@@ -1,73 +1,57 @@
 {% load static %}
 
 <!DOCTYPE html>
-
 <html lang="en">
 
-    <head> 
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Bevan Health and Fitness - Achieve your fitness goals with personalized workout plans, expert guidance, and state-of-the-art equipment. Join now and start your fitness journey.">
+    <meta name="keywords" content="fitness, health, workouts, personal training, gym, Bevan Health and Fitness">
+    <meta name="author" content="Bevan Health and Fitness">
+    
+    <title>Bevan Health And Fitness</title>
 
-        <meta charset="utf-8">
+    <!-- Bootswatch Theme and Font Awesome -->
+    <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/sandstone/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
 
+<body>
+    <!-- Navbar -->
+    {% include 'navbar.html' %}
 
-        <title> Bevan Health And Fitness </title>
+    <!-- Display Messages -->
+    {% if messages %}
+    <div class="alerts-container">
+        <ul>
+            {% for message in messages %}
+            <li class="alert alert-{{ message.tags }}">{{ message }}</li>
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
 
-
-        <!--Change the bootwatch themes -->
-        <link rel="stylesheet" type="text/css" href="https://bootswatch.com/5/sandstone/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-        
-        <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-
-        
-
-    </head>
-
-    <body>
-
-        <!-- Create Navbar here -->
-
-        {% include 'navbar.html' %}
-
-         <!-- Messages -->
-         {% if messages %}
-         <div class="alerts-container">
-             <ul>
-                 {% for message in messages %}
-                     <li class="alert alert-{{ message.tags }}">{{ message }}</li>
-                 {% endfor %}
-             </ul>
-         </div>
-         {% endif %}
-
-        
-        <div class="container">
-
-            <br>
-
-            <!-- Notification messages -->
-
-
+    <!-- Main Container -->
+    <div class="container">
+        <br>
         <main>
-           {% block content %}
+            <!-- Dynamic Content Block -->
+            {% block content %}
+            {% endblock %}
+        </main>
+    </div>
 
+    <!-- Footer -->
+    {% include 'footer.html' %}
 
-
-
-           {% endblock %}
-         </main>
-
-        </div>
-
-        {% include 'footer.html' %}
-
-        <script src="{% static 'js/app.js' %}"></script>
-
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-        
-    </body>
-
+    <!-- JavaScript Files -->
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
 
 </html>

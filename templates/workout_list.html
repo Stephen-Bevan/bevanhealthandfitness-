@@ -2,6 +2,7 @@
 
 {% block content %}
 <div class="container mt-5">
+    <!-- Page Title -->
     <h1 class="text-center">My Workouts</h1>
 
     <!-- Greeting Message -->
@@ -12,12 +13,12 @@
         {% endif %}
     </div>
 
-    <!-- Add Workout & Search -->
+    <!-- Add Workout Button -->
     <div class="d-flex justify-content-between align-items-center mb-3">
         <a href="{% url 'workout-create' %}" class="btn btn-success">+ Add New Workout</a>
     </div>
 
-    <!-- Workout List -->
+    <!-- Workout List Table -->
     <div class="table-responsive">
         <table class="table table-bordered table-hover">
             <thead class="table-dark">
@@ -32,6 +33,7 @@
             </thead>
             <tbody>
                 {% for workout in workouts %}
+                    <!-- Display each workout -->
                     <tr>
                         <td>{{ workout.name }}</td>
                         <td>{{ workout.day }}</td>
@@ -39,9 +41,11 @@
                         <td>{{ workout.reps }}</td>
                         <td>{{ workout.weights }}</td>
                         <td>
+                            <!-- Edit Workout -->
                             <a href="{% url 'workout-update' workout.id %}" class="btn btn-warning btn-sm">
                                 <i class="fas fa-edit"></i> Edit
                             </a>
+                            <!-- Delete Workout -->
                             <form action="{% url 'workout-delete' workout.id %}" method="post" class="d-inline">
                                 {% csrf_token %}
                                 <button type="submit" class="btn btn-danger btn-sm" 
@@ -52,6 +56,7 @@
                         </td>
                     </tr>
                 {% empty %}
+                    <!-- No Workouts Found -->
                     <tr>
                         <td colspan="6" class="text-center">
                             <div class="alert alert-warning" role="alert">
@@ -69,6 +74,7 @@
     {% if workouts.paginator.num_pages > 1 %}
         <nav aria-label="Page navigation">
             <ul class="pagination justify-content-center">
+                <!-- Previous Page -->
                 {% if workouts.has_previous %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ workouts.previous_page_number }}" aria-label="Previous">
@@ -76,11 +82,13 @@
                         </a>
                     </li>
                 {% endif %}
+                <!-- Page Numbers -->
                 {% for num in workouts.paginator.page_range %}
                     <li class="page-item {% if workouts.number == num %}active{% endif %}">
                         <a class="page-link" href="?page={{ num }}">{{ num }}</a>
                     </li>
                 {% endfor %}
+                <!-- Next Page -->
                 {% if workouts.has_next %}
                     <li class="page-item">
                         <a class="page-link" href="?page={{ workouts.next_page_number }}" aria-label="Next">
@@ -92,6 +100,4 @@
         </nav>
     {% endif %}
 </div>
-
-
 {% endblock %}
