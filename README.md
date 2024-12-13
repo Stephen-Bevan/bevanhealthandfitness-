@@ -167,32 +167,30 @@ Project management was conducted using GitHub Projects. [View the Project Board]
   
   ![JS Validation Screenshot](Readme_images/Screenshots_CSS,HTML,Pyton,Js/Jsvalidated.PNG)
 
-
-
 ### **Testing Screenshots**
 
-- Hero Section Testing:
+- Hero Section Testing:  
   ![Hero Section Testing](Readme_images/Screenshots_Features_testing/homepage.png)
 
-- Navigation Links Testing:
+- Navigation Links Testing:  
   ![Navigation Links Testing](Readme_images/Screenshots_Features_testing/nav_bar.PNG)
 
-- User Registration Testing:
+- User Registration Testing:  
   ![User Registration Testing](Readme_images/Screenshots_Features_testing/reg_successful.PNG)
 
-- Log In Testing:
+- Log In Testing:  
   ![Log In Testing](Readme_images/Screenshots_Features_testing/shows_a_successfulaccount_login_message.png)
 
-- Dashboard Links Testing:
+- Dashboard Links Testing:  
   ![Dashboard Links Testing](Readme_images/Screenshots_Features_testing/Dashbord.PNG)
 
-- Create Workout Form Testing:
+- Create Workout Form Testing:  
   ![Create Workout Form Testing](Readme_images/Screenshots_Features_testing/workout_saved.PNG)
 
-- Edit/Delete Workout Testing:
+- Edit/Delete Workout Testing:  
   ![Edit/Delete Workout Testing](Readme_images/Screenshots_Features_testing/Workout_deleted_confrmed.png)
 
-- 404 Page Testing:
+- 404 Page Testing:  
   ![404 Page Testing](Readme_images/Screenshots_Features_testing/404_page.png)
 
 ---
@@ -200,46 +198,140 @@ Project management was conducted using GitHub Projects. [View the Project Board]
 ## Known Bugs
 
 - **Django Alert Message**: Alert messages are white and unreadable when a user attempts to register with a username already taken. This issue remains unresolved but is marked for future updates.
-
+  
   ![Known Bug - Username Taken](Readme_images/Screenshots_Features_testing/Known_Bug_reg_same_username.PNG)
 
-- **Date Resets Issue**: When editing a record, the date resets. Additionally, the weight field does not display "kg" as intended. 
-
+- **Date Resets Issue**: When editing a record, the date resets. Additionally, the weight field does not display "kg" as intended.
+  
   ![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
 
 ---
+### **Lighthouse Testing and WCAG Contrast Testing**
 
-### **Lighthouse testing **
+#### **Main Page**  
+![Lighthouse Testing - Main Page](Readme_images/lighthouse_con/lighthouseconhome.PNG)
 
-main page 
-![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
+#### **Create Workout**  
+![Lighthouse Testing - Create Workout](Readme_images/lighthouse_con/lighthouseconmakeedworkout.PNG)
 
-other pages 
+#### **Workout List**  
+![Lighthouse Testing - Workout List](Readme_images/lighthouse_con/lighthouseconworkoutlist.PNG)
 
-![Known Bug - Bug Date Resets When Editing and Doesn't Show KG](Readme_images/Screenshots_Features_testing/Knownbugdateresetswheneditinganddonentshowkg.PNG)
+#### **404 Page Testing**  
+![Lighthouse Testing - 404 Page](Readme_images/lighthouse_con/lighthoutcon404.PNG)
+
+### **Notes**  
+The Lighthouse score for the home page and WCAG contrast for all pages will be improved in future versions.
 
 
-### **WCAG Color contrast testing **
+## Deployment Guide
 
-## Deployment
+### 1. Creating the Heroku App
 
-### **Steps**
+#### Step-by-Step Instructions:
+1. **Sign Up or Log In to Heroku:**
+   - Navigate to [Heroku's website](https://heroku.com) and either create an account or log in.
 
-1. Created the Heroku app.
-2. Set up environment variables for secure data handling.
-3. Configured Procfile for deployment.
-4. Pushed the project to Heroku via Git.
+2. **Create a New App:**
+   - In your Heroku Dashboard, click on **"New"**, then select **"Create New App"**.
+   - Enter a unique name for your project, such as "SplitBuddy".
+   - Select **EU** as the region.
+   - Click **"Create App"**.
 
-### **Forking the Repository**
+3. **Configure Deployment Method:**
+   - Go to the **"Deploy"** tab and choose **GitHub** as your deployment method.
+   - Connect your GitHub account and locate the repository for your project.
+   - Link the repository to your Heroku app.
 
-1. Navigate to the [GitHub Repository](https://github.com/Stephen-Bevan/bevanhealthandfitness).
-2. Click "Fork" at the top right of the page.
+---
 
-### **Cloning the Repository**
+### 2. Setting Up Environment Variables
 
-1. Navigate to the [GitHub Repository](https://github.com/Stephen-Bevan/bevanhealthandfitness).
-2. Click the "Code" button.
-3. Copy the HTTPS link and run `git clone [link]` in your terminal.
+#### Steps:
+1. **Create an `env.py` File:**
+   - In the top-level directory of your Django project, create a file named `env.py`.
+   - Import the `os` module in this file.
+
+2. **Define Environment Variables:**
+   - Set up the necessary variables, such as the secret key and database URL, in `env.py`.
+
+3. **Update `settings.py`:**
+   - Modify `settings.py` to retrieve these variables using `os.getenv()`.
+
+4. **Configure Variables on Heroku:**
+   - Navigate to the **"Settings"** tab of your Heroku app.
+   - Under **"Config Vars"**, add the same variables from your `env.py` file.
+
+5. **Database Migration:**
+   - Update your terminal with the new database connection and run migrations to sync your models.
+
+6. **Static Files and Templates:**
+   - Ensure your `settings.py` file is configured correctly for static files and templates.
+
+7. **Allowed Hosts:**
+   - Add your Heroku app's URL to the `ALLOWED_HOSTS` list in `settings.py`.
+
+---
+
+### 3. Creating the Procfile and Pushing Changes
+
+#### Steps:
+1. **Create a Procfile:**
+   - In the root directory of your project, create a file named `Procfile`.
+   - Add the command to run the project, e.g., `web: gunicorn <your_project_name>.wsgi`.
+
+2. **Commit and Push:**
+   - Use Git to stage, commit, and push your changes to the GitHub repository:
+     ```bash
+     git add .
+     git commit -m "Prepare for Heroku deployment"
+     git push origin main
+     ```
+
+---
+
+### 4. Deploying to Heroku
+
+#### Steps:
+1. **Manual Deployment:**
+   - In Heroku, go to the **"Deploy"** tab and manually deploy the desired branch.
+
+2. **Monitor Logs:**
+   - Check the build logs for any issues during deployment.
+
+3. **Live Site:**
+   - Upon a successful deployment, Heroku will display a link to your live site.
+
+4. **Troubleshooting:**
+   - If errors arise, debug by checking logs and adjusting your code or configuration as needed.
+
+---
+
+### 5. Forking the Repository
+
+#### Steps:
+1. **Log In to GitHub:**
+   - Access your GitHub account or create one if you don’t already have an account.
+
+2. **Fork the Repository:**
+   - Visit the repository’s page on GitHub.
+   - Click on the **"Fork"** button at the top of the page to create your own copy.
+
+---
+
+### 6. Cloning the Repository
+
+#### Steps:
+1. **Copy Repository URL:**
+   - On the repository’s GitHub page, click the **"<> Code"** button.
+   - Under the **"Local"** tab, select **HTTPS** and copy the provided URL.
+
+2. **Clone the Repository Locally:**
+   - Open your terminal and navigate to your desired folder.
+   - Run the following command, replacing `<repository-url>` with the copied URL:
+     ```bash
+     git clone <repository-url>
+     ```
 
 ---
 
